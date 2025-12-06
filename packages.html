@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paket & Harga | NRTSTUDIO</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CONFIGURATION (SAMA DENGAN INDEX) --- */
+        :root {
+            --bg-color: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text-main: #ffffff;
+            --text-muted: #a1a1a1;
+            --accent: #6C5DD3; /* Lilac Purple */
+            --accent-hover: #5a4cb5;
+            --border-radius: 16px;
+            --padding: 20px;
+        }
+
+        /* --- GLOBAL RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--padding); }
+
+        /* --- NAVBAR --- */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #333; }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- PRICING SECTION --- */
+        .pricing-header { text-align: center; padding: 60px 0 40px; }
+        .pricing-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .pricing-header p { color: var(--text-muted); }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            position: relative;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        
+        /* Highlight untuk paket populer */
+        .popular { border-color: var(--accent); box-shadow: 0 0 20px rgba(108, 93, 211, 0.2); }
+        .badge {
+            position: absolute; top: -12px; right: 20px;
+            background: var(--accent); color: white;
+            padding: 5px 15px; font-size: 0.8rem; font-weight: bold;
+            border-radius: 20px;
+        }
+
+        .plan-name { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 10px; }
+        .price { font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; }
+        .price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+
+        .features-list { margin-bottom: 30px; flex-grow: 1; }
+        .features-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: #ddd; }
+        .features-list li::before { content: "✓"; color: var(--accent); font-weight: bold; }
+
+        .btn-book {
+            display: block; width: 100%; text-align: center;
+            background: var(--accent); color: white; padding: 15px;
+            border-radius: 10px; font-weight: bold;
+        }
+        .btn-book:hover { background: var(--accent-hover); }
+
+        /* --- FAQ SECTION (PURE CSS) --- */
+        .faq-section { max-width: 800px; margin: 0 auto 80px; }
+        .faq-header { text-align: center; margin-bottom: 30px; }
+        
+        details {
+            background: var(--card-bg);
+            margin-bottom: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        summary {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            list-style: none; /* Hide default triangle */
+            position: relative;
+        }
+        summary::after {
+            content: "+"; position: absolute; right: 20px; font-weight: 800; color: var(--accent);
+        }
+        details[open] summary::after { content: "-"; }
+        
+        .faq-content { padding: 0 20px 20px; color: var(--text-muted); border-top: 1px solid #333; line-height: 1.6; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links { font-size: 0.9rem; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo">NRT<span>STUDIO</span>.</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="packages.html" style="color: var(--accent);">Paket</a></li>
+                <li><a href="gallery.html">Galeri</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container pricing-header">
+        <h1>Pilih Paket Sesuai Mood.</h1>
+        <p>Harga mahasiswa, kualitas studio profesional.</p>
+    </div>
+
+    <div class="container pricing-grid">
+        
+        <div class="price-card">
+            <h3 class="plan-name">SOLO RUN</h3>
+            <div class="price">35K <span>/sesi</span></div>
+            <ul class="features-list">
+                <li>1 Orang</li>
+                <li>15 Menit Pemotretan</li>
+                <li>10 Menit Pemilihan Foto</li>
+                <li>2 Cetak 4R</li>
+                <li>All Softfile (Google Drive)</li>
+            </ul>
+            <a href="https://wa.me/6282278075657?text=Halo%20NRTStudio,%20saya%20mau%20booking%20paket%20SOLO%20RUN" class="btn-book">Book Solo</a>
+        </div>
+
+        <div class="price-card popular">
+            <div class="badge">BEST VALUE</div>
+            <h3 class="plan-name">DUO / COUPLE</h3>
+            <div class="price">50K <span>/sesi</span></div>
+            <ul class="features-list">
+                <li>1-2 Orang</li>
+                <li>20 Menit Pemotretan</li>
+                <li>10 Menit Pemilihan Foto</li>
+                <li>2 Cetak 4R + 1 Collage</li>
+                <li>All Softfile (Google Drive)</li>
+                <li>Free Props (Kacamata/Topi)</li>
+            </ul>
+            <a href="https://wa.me/6282278075657?text=Halo%20NRTStudio,%20saya%20mau%20booking%20paket%20DUO" class="btn-book">Book Duo</a>
+        </div>
+
+        <div class="price-card">
+            <h3 class="plan-name">SQUAD</h3>
+            <div class="price">85K <span>/sesi</span></div>
+            <ul class="features-list">
+                <li>3-5 Orang</li>
+                <li>25 Menit Pemotretan</li>
+                <li>15 Menit Pemilihan Foto</li>
+                <li>4 Cetak 4R</li>
+                <li>All Softfile (Google Drive)</li>
+                <li>Full Background Choice</li>
+            </ul>
+            <a href="https://wa.me/6282278075657?text=Halo%20NRTStudio,%20saya%20mau%20booking%20paket%20SQUAD" class="btn-book">Book Squad</a>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="faq-header">
+            <h2>Sering Ditanyakan (FAQ)</h2>
+        </div>
+        <div class="faq-section">
+            <details>
+                <summary>Apakah harus booking dulu?</summary>
+                <div class="faq-content">
+                    Yes, sangat disarankan booking via WhatsApp biar gak nunggu lama. Kalau langsung datang (walk-in) tetap bisa tapi tergantung slot kosong.
+                </div>
+            </details>
+            <details>
+                <summary>Softfile dikirim lewat apa?</summary>
+                <div class="faq-content">
+                    Semua foto mentah dan editan akan dikirim via Google Drive link, maksimal 2 jam setelah sesi foto selesai.
+                </div>
+            </details>
+            <details>
+                <summary>Bisa ganti baju saat sesi?</summary>
+                <div class="faq-content">
+                    Bisa banget. Waktu ganti baju termasuk dalam durasi sesi ya, jadi manfaatkan waktu sebaik mungkin!
+                </div>
+            </details>
+        </div>
+    </div>
+
+</body>
+</html>

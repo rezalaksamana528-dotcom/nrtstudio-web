@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri | NRTSTUDIO</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CONFIGURATION --- */
+        :root {
+            --bg-color: #0f0f0f;
+            --text-main: #ffffff;
+            --accent: #6C5DD3;
+            --padding: 20px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+        }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--padding); }
+
+        /* --- NAVBAR --- */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #333; margin-bottom: 40px;}
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- GALLERY GRID (MASONRY STYLE) --- */
+        .gallery-header { text-align: center; margin-bottom: 50px; }
+        .gallery-header h1 { font-size: 2.5rem; }
+        .gallery-header span { color: var(--accent); }
+
+        .gallery-container {
+            /* Magic CSS Columns untuk Masonry Layout */
+            column-count: 3;
+            column-gap: 20px;
+        }
+
+        .gallery-item {
+            margin-bottom: 20px; /* Jarak antar foto vertikal */
+            break-inside: avoid; /* Mencegah foto terpotong kolom */
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+            filter: grayscale(20%); /* Biar agak artsy dikit */
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05); /* Zoom dikit pas hover */
+            filter: grayscale(0%);
+        }
+
+        /* Overlay text pas hover (Opsional) */
+        .overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            opacity: 0;
+            transition: 0.3s;
+            transform: translateY(20px);
+        }
+        .gallery-item:hover .overlay { opacity: 1; transform: translateY(0); }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .gallery-container { column-count: 2; }
+        }
+        @media (max-width: 600px) {
+            .gallery-container { column-count: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo">NRT<span>STUDIO</span>.</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="packages.html">Paket</a></li>
+                <li><a href="gallery.html" style="color: var(--accent);">Galeri</a></li>
+            </ul>
+        </nav>
+
+        <div class="gallery-header">
+            <h1>Our <span>Masterpieces</span></h1>
+            <p>Real people. Real vibes. Generated moments.</p>
+        </div>
+
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="img/potrait.webp" alt="Portrait">
+                <div class="overlay"><h4>Cool Vibe</h4></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/group.webp" alt="Group">
+                <div class="overlay"><h4>Squad Goals</h4></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/ootd.webp" alt="OOTD">
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/closeup.webp" alt="Close Up">
+            </div>
+
+             <div class="gallery-item">
+                <img src="img/couple.webp" alt="Couple">
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/fun.webp" alt="Props">
+            </div>
+
+        </div>
+        
+        <footer style="text-align: center; padding: 40px 0; color: #666; font-size: 0.8rem; margin-top: 20px;">
+            &copy; 2025 NRTSTUDIO.
+        </footer>
+    </div>
+
+</body>
+</html>

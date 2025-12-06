@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NRTSTUDIO | Capture Your Moment</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 1. CONFIGURATION (GANTI WARNA DISINI) --- */
+        :root {
+            --bg-color: #0f0f0f;       /* Background Gelap Modern */
+            --card-bg: #1a1a1a;        /* Warna Kartu */
+            --text-main: #ffffff;      /* Teks Utama */
+            --text-muted: #a1a1a1;     /* Teks Redup */
+            --accent: #6C5DD3;         /* Warna Aksen (Ungu Modern) */
+            --accent-hover: #5a4cb5;   
+            --border-radius: 16px;     /* Sudut membulat ala iOS */
+            --padding: 20px;
+        }
+
+        /* --- 2. GLOBAL RESET (ANTI BLOAT) --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- 3. COMPONENTS --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--padding);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        .btn:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
+
+        /* --- 4. NAVBAR --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- 5. HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+        }
+        .hero h1 {
+            font-size: 3.5rem; /* Large Typography Trend */
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #a1a1a1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        /* --- 6. BENTO GRID (TRENDY PART) --- */
+        .features { padding: 50px 0; }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 Kolom */
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .bento-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+        .bento-card:hover { border-color: var(--accent); }
+        .bento-large { grid-column: span 2; } /* Card lebar */
+        .bento-tall { grid-row: span 2; }     /* Card tinggi */
+
+        .bento-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .bento-card p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* --- 7. FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #333;
+            margin-top: 50px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .bento-grid { grid-template-columns: 1fr; } /* Jadi 1 kolom di HP */
+            .bento-large, .bento-tall { grid-column: span 1; grid-row: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo">NRT<span>STUDIO</span>.</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="packages.html">Paket</a></li>
+                <li><a href="gallery.html">Galeri</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Capture Your<br>Best Angles.</h1>
+            <p>Self-photo studio modern dengan lighting professional. <br>Privasi total, hasil instan, harga mahasiswa.</p>
+            <a href="packages.html" class="btn">Book Now -></a>
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="features">
+            <h2 style="margin-bottom: 20px;">Why Snapbox?</h2>
+            <div class="bento-grid">
+                <div class="bento-card bento-large">
+                    <h3>Professional Lighting</h3>
+                    <p>Setup lighting studio grade yang bikin kulit lo glowing natural tanpa filter berlebihan.</p>
+                </div>
+                
+                <div class="bento-card">
+                    <h3>Privacy First</h3>
+                    <p>Ruangan tertutup. Bebas berekspresi tanpa dilihat operator.</p>
+                </div>
+
+                <div class="bento-card">
+                    <h3>High Res Files</h3>
+                    <p>Dapet softfile original resolusi tinggi via Google Drive.</p>
+                </div>
+
+                <div class="bento-card bento-large">
+                    <h3>Unlimited Shutter</h3>
+                    <p>Foto sepuasnya selama durasi sesi (15/20 Menit). Remote di tangan lo.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Snapbox Studio. Made with HTML & CSS.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
